@@ -28,8 +28,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-          cache: 'pip'
+          python-version: '3.10' # Removed the cache: 'pip' line to fix the crash
 
       - name: Install Libraries
         run: pip install pandas numpy requests
@@ -43,7 +42,7 @@ jobs:
       - name: Package HTML Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Uploads everything in root, which includes your fresh index.html
+          path: '.'
 
       - name: Deploy Live to GitHub Pages
         id: deployment
